@@ -74,10 +74,10 @@
 
   /* SCREENSHOTS */
   .shots{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-  .shot-row{display:flex;gap:18px;overflow-x:auto;padding:8px 2px 14px;scroll-snap-type:x mandatory}
-  .shot-row img{height:520px;border-radius:20px;border:1px solid var(--border);
-    scroll-snap-align:center;flex:0 0 auto;box-shadow:0 16px 40px rgba(0,0,0,.4)}
-  @media(max-width:640px){.shot-row img{height:420px}}
+  .shot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .shot-grid img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--border);
+    box-shadow:0 16px 40px rgba(0,0,0,.4)}
+  @media(max-width:820px){.shot-grid{grid-template-columns:repeat(2,1fr);gap:14px}}
 
   /* STEPS */
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
@@ -122,7 +122,6 @@
 
 <header class="hero"><div class="wrap hero-grid">
   <div>
-    <span class="pill">🎾 FREE · JUST FOR FUN · ATP TENNIS</span>
     <h1>Predict the match.<br><span class="g">Climb the leaderboard.</span></h1>
     <p class="lead">EdgePoint Tennis Community is a free game for tennis fans. Call the winners
       of real ATP matches, earn XP and badges, and see how your instincts rank against players
@@ -162,10 +161,9 @@
 <section id="screens" class="shots"><div class="wrap">
   <p class="eyebrow">A look inside</p>
   <h2>Clean, fast, made for match day</h2>
-  <p class="sec-sub">Swipe through the app.</p>
-  <div class="shot-row">
+  <p class="sec-sub">Sign in, browse players, check rankings and track your profile.</p>
+  <div class="shot-grid">
     <img src="/assets/shot-1.png" alt="Sign in">
-    <img src="/assets/shot-2.png" alt="Matches">
     <img src="/assets/shot-3.png" alt="Players">
     <img src="/assets/shot-4.png" alt="Ranking">
     <img src="/assets/shot-5.png" alt="Profile">
