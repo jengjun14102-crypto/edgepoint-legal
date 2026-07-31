@@ -4,22 +4,46 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>EdgePoint Tennis Community — Privacy Policy</title>
+<link rel="icon" href="/assets/icon.png">
 <style>
-  body{max-width:760px;margin:40px auto;padding:0 20px;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;color:#1a1a1a;background:#fff}
-  h1{font-size:1.7rem}h2{margin-top:1.6em;font-size:1.15rem}
-  code{background:#f2f2f2;padding:1px 5px;border-radius:4px}
-  .muted{color:#666;font-size:.9rem}
-  a{color:#0a7d54}
+  :root{--bg:#0b1210;--bg2:#0f1a16;--card:#12211b;--border:#1f342b;--green:#3DDC97;--text:#eaf3ef;--muted:#9fb3aa}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);line-height:1.7;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:var(--green)}
+  .wrap{max-width:780px;margin:0 auto;padding:0 22px}
+  nav{position:sticky;top:0;background:rgba(11,18,16,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800}
+  .brand img{width:30px;height:30px;border-radius:8px}
+  .navlinks a{color:var(--muted);margin-left:16px;font-weight:600;font-size:.9rem}
+  .navlinks a:hover{color:var(--text);text-decoration:none}
+  @media(max-width:560px){.navlinks a{margin-left:11px;font-size:.82rem}}
+  main{padding:40px 0 70px}
+  h1{font-size:1.9rem;margin:0 0 6px}
+  .updated{color:var(--muted);font-size:.9rem;margin:0 0 26px}
+  h2{font-size:1.2rem;margin:1.9em 0 .4em;color:#fff}
+  .intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--green);
+    border-radius:12px;padding:16px 20px;margin:0 0 8px}
+  strong{color:#fff}
+  code{background:#0c1815;border:1px solid var(--border);padding:1px 6px;border-radius:5px;color:var(--green)}
+  footer{border-top:1px solid var(--border);margin-top:50px;padding:26px 0;color:var(--muted);font-size:.88rem}
+  footer a{margin-right:16px;font-weight:600}
 </style>
 </head>
 <body>
-<h1>EdgePoint Tennis Community — Privacy Policy</h1>
-<p class="muted">Last updated: 2026-07-31 · <a href="/terms">Terms of Service</a> · <a href="/contact">Contact</a> · <a href="/">Home</a></p>
+<nav><div class="wrap">
+  <a class="brand" href="/" style="color:inherit"><img src="/assets/icon.png" alt="">EdgePoint Tennis</a>
+  <div class="navlinks"><a href="/">Home</a><a href="/terms">Terms</a><a href="/contact">Contact</a></div>
+</div></nav>
 
-<p>EdgePoint Tennis Community ("the App", "we", "us") is a free community tennis-prediction
-game. This policy explains what data we collect, why, and your choices. <strong>The App is
-not a gambling product: it involves no real money, no wagering, and no betting odds.
-Predictions are for entertainment and community ranking only.</strong></p>
+<main><div class="wrap">
+<h1>Privacy Policy</h1>
+<p class="updated">Last updated: 2026-07-31</p>
+
+<p class="intro">EdgePoint Tennis Community ("the App", "we", "us") is a free community
+tennis-prediction game. This policy explains what data we collect, why, and your choices.
+Predictions are for entertainment and community ranking only — there is no real money involved.</p>
 
 <h2>1. Who we are</h2>
 <p>EdgePoint Tennis Community is operated by the EdgePoint team. Contact:
@@ -46,7 +70,7 @@ use it for third-party advertising.</p>
 <h2>5. Tennis data</h2>
 <p>Match schedules, results and AI win-probability estimates are generated from public tennis
 data and our own statistical model. AI percentages are <strong>reference estimates only</strong>
-and are not betting odds or guarantees.</p>
+and are not guarantees of any outcome.</p>
 
 <h2>6. Data sharing</h2>
 <p>We share personal data only with infrastructure providers that host the service on our behalf
@@ -71,5 +95,11 @@ means you accept the revised policy.</p>
 
 <h2>11. Contact</h2>
 <p>Questions about privacy: <strong>support@edgepointtennis.com</strong></p>
+</div></main>
+
+<footer><div class="wrap">
+  <a href="/">Home</a><a href="/terms">Terms of Service</a><a href="/contact">Contact</a>
+  <div style="margin-top:12px">© 2026 EdgePoint Tennis Community</div>
+</div></footer>
 </body>
 </html>

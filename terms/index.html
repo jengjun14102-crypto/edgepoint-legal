@@ -4,26 +4,52 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>EdgePoint Tennis Community — Terms of Service</title>
+<link rel="icon" href="/assets/icon.png">
 <style>
-  body{max-width:760px;margin:40px auto;padding:0 20px;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;color:#1a1a1a;background:#fff}
-  h1{font-size:1.7rem}h2{margin-top:1.6em;font-size:1.15rem}
-  .muted{color:#666;font-size:.9rem}
-  a{color:#0a7d54}
+  :root{--bg:#0b1210;--bg2:#0f1a16;--card:#12211b;--border:#1f342b;--green:#3DDC97;--text:#eaf3ef;--muted:#9fb3aa}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);line-height:1.7;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:var(--green)}
+  .wrap{max-width:780px;margin:0 auto;padding:0 22px}
+  nav{position:sticky;top:0;background:rgba(11,18,16,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800}
+  .brand img{width:30px;height:30px;border-radius:8px}
+  .navlinks a{color:var(--muted);margin-left:16px;font-weight:600;font-size:.9rem}
+  .navlinks a:hover{color:var(--text);text-decoration:none}
+  @media(max-width:560px){.navlinks a{margin-left:11px;font-size:.82rem}}
+  main{padding:40px 0 70px}
+  h1{font-size:1.9rem;margin:0 0 6px}
+  .updated{color:var(--muted);font-size:.9rem;margin:0 0 26px}
+  h2{font-size:1.2rem;margin:1.9em 0 .4em;color:#fff}
+  .intro{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--green);
+    border-radius:12px;padding:16px 20px;margin:0 0 8px}
+  strong{color:#fff}
+  ul{padding-left:20px}
+  li{margin:.3em 0}
+  footer{border-top:1px solid var(--border);margin-top:50px;padding:26px 0;color:var(--muted);font-size:.88rem}
+  footer a{margin-right:16px;font-weight:600}
 </style>
 </head>
 <body>
-<h1>EdgePoint Tennis Community — Terms of Service</h1>
-<p class="muted">Last updated: 2026-07-31 · <a href="/privacy">Privacy Policy</a> · <a href="/contact">Contact</a> · <a href="/">Home</a></p>
+<nav><div class="wrap">
+  <a class="brand" href="/" style="color:inherit"><img src="/assets/icon.png" alt="">EdgePoint Tennis</a>
+  <div class="navlinks"><a href="/">Home</a><a href="/privacy">Privacy</a><a href="/contact">Contact</a></div>
+</div></nav>
 
-<p>These Terms of Service ("Terms") govern your use of the EdgePoint Tennis Community mobile
-application ("the App", "we", "us"). By using the App you agree to these Terms. If you do not
-agree, please do not use the App.</p>
+<main><div class="wrap">
+<h1>Terms of Service</h1>
+<p class="updated">Last updated: 2026-07-31</p>
+
+<p class="intro">EdgePoint Tennis Community is a free community prediction game for ATP tennis
+fans. By using the App you agree to these Terms. If you do not agree, please do not use the App.</p>
 
 <h2>1. What EdgePoint is</h2>
 <p>EdgePoint Tennis Community is a <strong>free community prediction game</strong> for ATP tennis
 fans. You predict match winners, earn points, build streaks, unlock badges and compare with other
-fans on a leaderboard. <strong>The App is for entertainment only. It is not a gambling product:
-there is no real money, no wagering, no betting odds, and no cash prizes of any kind.</strong></p>
+fans on a leaderboard. <strong>The App is for entertainment only</strong> — there is no real money
+and no cash prizes of any kind.</p>
 
 <h2>2. Eligibility</h2>
 <p>You must be at least 13 years old (or the minimum age of digital consent in your country) to
@@ -40,14 +66,14 @@ accurate information and do not impersonate others.</p>
   <li>post unlawful, abusive, hateful, harassing or spam content;</li>
   <li>attempt to cheat, manipulate leaderboards, or abuse points/streaks/badges;</li>
   <li>reverse engineer, disrupt, or overload the service;</li>
-  <li>use the App to promote real-money betting, gambling or any illegal activity.</li>
+  <li>use the App to promote any illegal activity.</li>
 </ul>
 <p>We may remove content or suspend accounts that violate these Terms.</p>
 
 <h2>5. Predictions and AI estimates</h2>
 <p>AI win-probability percentages and any statistics shown in the App are <strong>reference
-estimates only</strong>, generated from public tennis data and our own model. They are not betting
-odds, financial advice, or guarantees of any outcome. You rely on them at your own discretion, for
+estimates only</strong>, generated from public tennis data and our own model. They are not
+financial advice, or guarantees of any outcome. You rely on them at your own discretion, for
 entertainment only.</p>
 
 <h2>6. User content</h2>
@@ -75,5 +101,11 @@ means you accept the revised Terms.</p>
 
 <h2>11. Contact</h2>
 <p>Questions: <strong>support@edgepointtennis.com</strong></p>
+</div></main>
+
+<footer><div class="wrap">
+  <a href="/">Home</a><a href="/privacy">Privacy Policy</a><a href="/contact">Contact</a>
+  <div style="margin-top:12px">© 2026 EdgePoint Tennis Community</div>
+</div></footer>
 </body>
 </html>
