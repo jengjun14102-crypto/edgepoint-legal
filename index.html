@@ -3,26 +3,209 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EdgePoint Tennis Community</title>
+<title>EdgePoint Tennis Community — Predict. Compete. Climb.</title>
+<meta name="description" content="A free community tennis-prediction game for ATP fans. Predict match winners, earn XP, unlock badges and climb the global leaderboard. Not betting — just for fun.">
+<meta property="og:title" content="EdgePoint Tennis Community">
+<meta property="og:description" content="Free community tennis-prediction game. Predict winners, earn points, climb the leaderboard.">
+<meta property="og:image" content="/assets/feature.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="/assets/icon.png">
 <style>
-  body{max-width:760px;margin:60px auto;padding:0 20px;font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;color:#1a1a1a;background:#fff}
-  h1{font-size:1.9rem}
-  .muted{color:#666}
-  a{color:#0a7d54;font-weight:600}
-  ul{line-height:2}
+  :root{
+    --bg:#0b1210; --bg2:#0f1a16; --card:#12211b; --border:#1f342b;
+    --green:#3DDC97; --green-d:#28b57c; --text:#eaf3ef; --muted:#9fb3aa;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--green);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+  .btn{display:inline-block;background:var(--green);color:#04231a;font-weight:700;
+    padding:13px 26px;border-radius:999px;font-size:1rem;border:none;cursor:pointer;transition:.15s}
+  .btn:hover{background:var(--green-d);text-decoration:none;transform:translateY(-1px)}
+  .btn.ghost{background:transparent;color:var(--green);border:1.5px solid var(--green)}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:20;background:rgba(11,18,16,.82);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:1.05rem}
+  .brand img{width:34px;height:34px;border-radius:9px}
+  .navlinks a{color:var(--muted);margin-left:22px;font-weight:600;font-size:.92rem}
+  .navlinks a:hover{color:var(--text);text-decoration:none}
+  @media(max-width:640px){.navlinks{display:none}}
+
+  /* HERO */
+  header.hero{background:
+    radial-gradient(1200px 500px at 75% -10%,rgba(61,220,151,.16),transparent 60%),
+    linear-gradient(180deg,var(--bg2),var(--bg));
+    padding:76px 0 60px;border-bottom:1px solid var(--border)}
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+  @media(max-width:820px){.hero-grid{grid-template-columns:1fr;text-align:center}}
+  .pill{display:inline-block;background:rgba(61,220,151,.12);color:var(--green);
+    border:1px solid rgba(61,220,151,.3);padding:5px 14px;border-radius:999px;
+    font-size:.8rem;font-weight:700;letter-spacing:.3px;margin-bottom:20px}
+  h1{font-size:2.9rem;line-height:1.12;margin:0 0 16px;letter-spacing:-.5px}
+  h1 .g{color:var(--green)}
+  .lead{font-size:1.18rem;color:var(--muted);margin:0 0 28px;max-width:520px}
+  @media(max-width:820px){.lead{margin-left:auto;margin-right:auto}}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap}
+  @media(max-width:820px){.cta-row{justify-content:center}}
+  .cta-note{color:var(--muted);font-size:.85rem;margin-top:14px}
+  .hero-phone{display:flex;justify-content:center}
+  .hero-phone img{width:100%;max-width:270px;border-radius:26px;border:1px solid var(--border);
+    box-shadow:0 30px 70px rgba(0,0,0,.5)}
+
+  /* SECTIONS */
+  section{padding:64px 0}
+  .eyebrow{color:var(--green);font-weight:700;font-size:.82rem;letter-spacing:1.5px;
+    text-transform:uppercase;margin:0 0 10px}
+  h2{font-size:2rem;margin:0 0 12px;letter-spacing:-.4px}
+  .sec-sub{color:var(--muted);font-size:1.05rem;max-width:640px;margin:0 0 40px}
+
+  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:820px){.features{grid-template-columns:1fr}}
+  .feat{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:26px 24px}
+  .feat .ic{font-size:1.7rem;margin-bottom:12px}
+  .feat h3{margin:0 0 8px;font-size:1.15rem}
+  .feat p{margin:0;color:var(--muted);font-size:.96rem}
+
+  /* SCREENSHOTS */
+  .shots{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+  .shot-row{display:flex;gap:18px;overflow-x:auto;padding:8px 2px 14px;scroll-snap-type:x mandatory}
+  .shot-row img{height:520px;border-radius:20px;border:1px solid var(--border);
+    scroll-snap-align:center;flex:0 0 auto;box-shadow:0 16px 40px rgba(0,0,0,.4)}
+  @media(max-width:640px){.shot-row img{height:420px}}
+
+  /* STEPS */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:820px){.steps{grid-template-columns:1fr}}
+  .step{position:relative;padding-left:52px}
+  .step .n{position:absolute;left:0;top:0;width:36px;height:36px;border-radius:50%;
+    background:rgba(61,220,151,.14);border:1px solid rgba(61,220,151,.35);color:var(--green);
+    font-weight:800;display:flex;align-items:center;justify-content:center}
+  .step h3{margin:2px 0 6px;font-size:1.1rem}
+  .step p{margin:0;color:var(--muted);font-size:.95rem}
+
+  /* DOWNLOAD CTA */
+  .download{text-align:center;background:
+    radial-gradient(900px 380px at 50% 120%,rgba(61,220,151,.14),transparent 60%)}
+  .download h2{font-size:2.1rem}
+  .badge-soon{display:inline-flex;align-items:center;gap:9px;background:var(--card);
+    border:1px solid var(--border);border-radius:14px;padding:12px 20px;color:var(--muted);
+    font-weight:600;margin-top:8px}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--border);padding:44px 0 60px;color:var(--muted);font-size:.9rem}
+  .foot-grid{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+  .foot-links a{color:var(--muted);margin-right:20px;font-weight:600}
+  .foot-links a:hover{color:var(--text);text-decoration:none}
+  .disclaimer{margin-top:26px;padding-top:22px;border-top:1px solid var(--border);
+    font-size:.82rem;color:#7d918a;max-width:760px}
 </style>
 </head>
 <body>
-<h1>EdgePoint Tennis Community</h1>
-<p class="muted">A free community tennis-prediction game for ATP fans — predict winners, earn points,
-and climb the leaderboard.</p>
 
-<ul>
-  <li><a href="/privacy">Privacy Policy</a></li>
-  <li><a href="/terms">Terms of Service</a></li>
-  <li><a href="/contact">Contact</a></li>
-</ul>
+<nav><div class="wrap">
+  <div class="brand"><img src="/assets/icon.png" alt="EdgePoint logo">EdgePoint Tennis</div>
+  <div class="navlinks">
+    <a href="#features">Features</a>
+    <a href="#screens">Screenshots</a>
+    <a href="#how">How it works</a>
+    <a href="/contact">Contact</a>
+  </div>
+</div></nav>
 
-<p class="muted">Contact: <strong>support@edgepointtennis.com</strong></p>
+<header class="hero"><div class="wrap hero-grid">
+  <div>
+    <span class="pill">🎾 FREE · NOT BETTING · ATP TENNIS</span>
+    <h1>Predict the match.<br><span class="g">Climb the leaderboard.</span></h1>
+    <p class="lead">EdgePoint Tennis Community is a free game for tennis fans. Call the winners
+      of real ATP matches, earn XP and badges, and see how your instincts rank against players
+      around the world.</p>
+    <div class="cta-row">
+      <a class="btn" href="#download">Get the app</a>
+      <a class="btn ghost" href="#features">See features</a>
+    </div>
+    <p class="cta-note">Coming soon to Google Play · Android</p>
+  </div>
+  <div class="hero-phone">
+    <img src="/assets/shot-2.png" alt="EdgePoint app — match predictions screen">
+  </div>
+</div></header>
+
+<section id="features"><div class="wrap">
+  <p class="eyebrow">Why you'll love it</p>
+  <h2>Everything a tennis fan wants</h2>
+  <p class="sec-sub">Built for the community — no odds, no stakes, no cash. Just the thrill of
+    calling matches right and climbing the ranks.</p>
+  <div class="features">
+    <div class="feat"><div class="ic">🎯</div><h3>Predict real matches</h3>
+      <p>Pick winners for live ATP tournaments and lock in before play begins.</p></div>
+    <div class="feat"><div class="ic">🤖</div><h3>AI match preview</h3>
+      <p>See each player's AI-estimated chance to win — a reference to sharpen your call, never gambling odds.</p></div>
+    <div class="feat"><div class="ic">🏆</div><h3>Global leaderboard</h3>
+      <p>Earn XP for every correct call and rise through weekly and all-time rankings.</p></div>
+    <div class="feat"><div class="ic">🔥</div><h3>Streaks &amp; badges</h3>
+      <p>Build prediction streaks and unlock badges — including hidden ones for the sharpest fans.</p></div>
+    <div class="feat"><div class="ic">📊</div><h3>Player insights</h3>
+      <p>Browse real ATP players with stats, surface strengths, form and head-to-head compares.</p></div>
+    <div class="feat"><div class="ic">💬</div><h3>Community</h3>
+      <p>Comment on matches, follow other predictors and see who really knows their tennis.</p></div>
+  </div>
+</div></section>
+
+<section id="screens" class="shots"><div class="wrap">
+  <p class="eyebrow">A look inside</p>
+  <h2>Clean, fast, made for match day</h2>
+  <p class="sec-sub">Swipe through the app.</p>
+  <div class="shot-row">
+    <img src="/assets/shot-1.png" alt="Sign in">
+    <img src="/assets/shot-2.png" alt="Matches">
+    <img src="/assets/shot-3.png" alt="Players">
+    <img src="/assets/shot-4.png" alt="Ranking">
+    <img src="/assets/shot-5.png" alt="Profile">
+  </div>
+</div></section>
+
+<section id="how"><div class="wrap">
+  <p class="eyebrow">How it works</p>
+  <h2>Three steps to the top</h2>
+  <div class="steps" style="margin-top:34px">
+    <div class="step"><div class="n">1</div><h3>Predict</h3>
+      <p>Open today's matches and call the winners you believe in.</p></div>
+    <div class="step"><div class="n">2</div><h3>Earn</h3>
+      <p>Get it right when the match ends and bank XP, streaks and badges.</p></div>
+    <div class="step"><div class="n">3</div><h3>Climb</h3>
+      <p>Watch your name rise on the global and weekly leaderboards.</p></div>
+  </div>
+</div></section>
+
+<section id="download" class="download"><div class="wrap">
+  <p class="eyebrow">Get started</p>
+  <h2>Join the community</h2>
+  <p class="sec-sub" style="margin:0 auto 18px">Free to play. Android first — iOS on the way.</p>
+  <div class="badge-soon">📱 Coming soon to Google Play</div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="foot-grid">
+    <div class="brand"><img src="/assets/icon.png" alt="EdgePoint logo" style="width:28px;height:28px;border-radius:7px">EdgePoint Tennis Community</div>
+    <div class="foot-links">
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="/contact">Contact</a>
+      <a href="mailto:support@edgepointtennis.com">Email</a>
+    </div>
+  </div>
+  <p class="disclaimer">EdgePoint Tennis Community is for entertainment only — a free community
+    prediction game, <strong>not a betting or gambling product</strong>. There are no odds,
+    no wagers, no real-money stakes and no cash prizes. AI percentages are reference estimates
+    generated by a statistical model, not gambling odds. © 2026 EdgePoint Tennis Community ·
+    support@edgepointtennis.com</p>
+</div></footer>
+
 </body>
 </html>
