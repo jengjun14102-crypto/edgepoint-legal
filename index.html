@@ -71,7 +71,7 @@
   .frame{padding:5px;border:1px solid var(--line);border-radius:26px;background:#0c1512;box-shadow:0 18px 46px rgba(0,0,0,.4)}
   .frame img{width:100%;height:auto;border-radius:22px;background:#0d1411;display:block}
   .shot .frame{border-radius:14px;padding:4px}
-  .shot .frame img{border-radius:9px}
+  .shot .frame img{border-radius:2px}
 
   /* TRUST */
   .trust{border-bottom:1px solid var(--line);background:rgba(255,255,255,.015)}
@@ -228,7 +228,7 @@
   <p class="disclaimer">A community game for tennis fans. AI percentages are model-based reference estimates. © 2026 EdgePoint Tennis Community · <a href="mailto:support@edgepointtennis.com">support@edgepointtennis.com</a></p>
 </div></footer>
 
-<div class="lightbox" id="lb" onclick="closeLb()"><span class="lb-close" aria-label="Close">&times;</span><img id="lb-img" src="" alt="EdgePoint app screenshot"></div>
+<div class="lightbox" id="lb" onclick="closeLb()"><span class="lb-close" aria-label="Close">&times;</span><img id="lb-img" src="" alt="EdgePoint app screenshot" onclick="event.stopPropagation()"></div>
 <script>
   function openLb(src){var lb=document.getElementById('lb');document.getElementById('lb-img').src=src;lb.classList.add('open');document.body.style.overflow='hidden';}
   function closeLb(){var lb=document.getElementById('lb');lb.classList.remove('open');document.body.style.overflow='';}
