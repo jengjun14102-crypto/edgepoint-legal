@@ -7,7 +7,7 @@
 <meta name="description" content="EdgePoint Tennis Community — predict real ATP matches, build your accuracy record, and climb the global leaderboard with fellow tennis fans.">
 <meta property="og:title" content="EdgePoint Tennis Community">
 <meta property="og:description" content="Predict real ATP matches, build your record, and climb the leaderboard with the tennis community.">
-<meta property="og:image" content="/assets/hero.png?v=172">
+<meta property="og:image" content="/assets/hero.png?v=173">
 <meta property="og:type" content="website">
 <title>EdgePoint Tennis Community — Predict. Compete. Climb.</title>
 <link rel="icon" href="/assets/icon.png">
@@ -51,8 +51,8 @@
   .brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--text)}
   .brand img{width:34px;height:34px;border-radius:9px}
   .nav-links{display:flex;align-items:center;gap:24px}
-  .nav-links a{color:var(--muted);font-size:.92rem;font-weight:600}
-  .nav-links a:hover{color:var(--text)}
+  .nav-links a:not(.btn){color:var(--muted);font-size:.92rem;font-weight:600}
+  .nav-links a:not(.btn):hover{color:var(--text)}
   .nav-cta{padding:9px 18px;min-height:0;font-size:.9rem}
   @media(max-width:760px){.nav-links{display:none}}
 
@@ -70,6 +70,8 @@
   .hero-phone .frame{width:min(70vw,240px)}
   .frame{padding:5px;border:1px solid var(--line);border-radius:26px;background:#0c1512;box-shadow:0 18px 46px rgba(0,0,0,.4)}
   .frame img{width:100%;height:auto;border-radius:22px;background:#0d1411;display:block}
+  .shot .frame{border-radius:14px;padding:4px}
+  .shot .frame img{border-radius:9px}
 
   /* TRUST */
   .trust{border-bottom:1px solid var(--line);background:rgba(255,255,255,.015)}
@@ -126,7 +128,7 @@
 <body>
 
 <header class="nav"><div class="wrap nav-in">
-  <a class="brand" href="#top"><img src="/assets/icon.png?v=171" alt="EdgePoint logo">EdgePoint</a>
+  <a class="brand" href="#top"><img src="/assets/icon.png?v=173" alt="EdgePoint logo">EdgePoint</a>
   <nav class="nav-links">
     <a href="#tour">App tour</a>
     <a href="#how">How it works</a>
@@ -148,7 +150,7 @@
       <div class="checks"><span>Free to play</span><span>Real ATP matches</span><span>Built for tennis fans</span></div>
     </div>
     <div class="hero-phone">
-      <div class="frame"><img src="/assets/hero.png?v=172" alt="EdgePoint app — head-to-head player comparison"></div>
+      <div class="frame"><img src="/assets/hero.png?v=173" alt="EdgePoint app — head-to-head player comparison"></div>
     </div>
   </div></section>
 
@@ -160,14 +162,14 @@
 
   <section class="shots" id="tour"><div class="wrap">
     <p class="eyebrow">Inside EdgePoint</p>
-    <h2>From the draw to your decision.</h2>
-    <p class="sec-sub">Five equal views, one clear journey: find a match, dive into the tournament, weigh the AI insight, explore the players and compare them head-to-head.</p>
+    <h2>From the draw to your call.</h2>
+    <p class="sec-sub">Browse a tournament, open a match, weigh the AI win estimate, explore the players and compare them head-to-head — then make your call.</p>
     <div class="shot-grid">
-      <figure class="shot"><div class="frame"><img src="/assets/shot-2.png?v=171" alt="Tournament detail screen" loading="lazy"></div><figcaption><span class="cap-n">01 · Follow</span><h3>Tournament</h3><p>Move through every round of the draw.</p></figcaption></figure>
-      <figure class="shot"><div class="frame"><img src="/assets/shot-1.png?v=171" alt="Matches screen" loading="lazy"></div><figcaption><span class="cap-n">02 · Discover</span><h3>Matches</h3><p>Browse matches by tournament.</p></figcaption></figure>
-      <figure class="shot"><div class="frame"><img src="/assets/shot-3.png?v=171" alt="AI match insight screen" loading="lazy"></div><figcaption><span class="cap-n">03 · Decide</span><h3>AI insight</h3><p>Model win estimates for reference.</p></figcaption></figure>
-      <figure class="shot"><div class="frame"><img src="/assets/shot-4.png?v=171" alt="Players screen" loading="lazy"></div><figcaption><span class="cap-n">04 · Explore</span><h3>Players</h3><p>Real ATP players and form.</p></figcaption></figure>
-      <figure class="shot"><div class="frame"><img src="/assets/shot-5.png?v=171" alt="Head-to-head comparison screen" loading="lazy"></div><figcaption><span class="cap-n">05 · Compare</span><h3>Head-to-head</h3><p>Two players side by side.</p></figcaption></figure>
+      <figure class="shot"><div class="frame"><img src="/assets/shot-2.png?v=173" alt="Tournament detail screen" loading="lazy"></div><figcaption><span class="cap-n">01 · Follow</span><h3>Tournament</h3><p>Move through every round of the draw.</p></figcaption></figure>
+      <figure class="shot"><div class="frame"><img src="/assets/shot-1.png?v=173" alt="Matches screen" loading="lazy"></div><figcaption><span class="cap-n">02 · Discover</span><h3>Matches</h3><p>Browse matches by tournament.</p></figcaption></figure>
+      <figure class="shot"><div class="frame"><img src="/assets/shot-3.png?v=173" alt="AI match insight screen" loading="lazy"></div><figcaption><span class="cap-n">03 · Decide</span><h3>AI insight</h3><p>Model win estimates for reference.</p></figcaption></figure>
+      <figure class="shot"><div class="frame"><img src="/assets/shot-4.png?v=173" alt="Players screen" loading="lazy"></div><figcaption><span class="cap-n">04 · Explore</span><h3>Players</h3><p>Real ATP players and form.</p></figcaption></figure>
+      <figure class="shot"><div class="frame"><img src="/assets/shot-5.png?v=173" alt="Head-to-head comparison screen" loading="lazy"></div><figcaption><span class="cap-n">05 · Compare</span><h3>Head-to-head</h3><p>Two players side by side.</p></figcaption></figure>
     </div>
   </div></section>
 
@@ -208,7 +210,7 @@
 
 <footer><div class="wrap">
   <div class="foot-grid">
-    <div class="brand"><img src="/assets/icon.png?v=171" alt="EdgePoint logo" style="width:28px;height:28px">EdgePoint Tennis Community</div>
+    <div class="brand"><img src="/assets/icon.png?v=173" alt="EdgePoint logo" style="width:28px;height:28px">EdgePoint Tennis Community</div>
     <nav class="foot-links">
       <a href="/privacy">Privacy Policy</a>
       <a href="/terms">Terms</a>
