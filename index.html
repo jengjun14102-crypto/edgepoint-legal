@@ -7,7 +7,7 @@
 <meta name="description" content="EdgePoint Tennis Community — predict real ATP matches, build your accuracy record, and climb the global leaderboard with fellow tennis fans.">
 <meta property="og:title" content="EdgePoint Tennis Community">
 <meta property="og:description" content="Predict real ATP matches, build your record, and climb the leaderboard with the tennis community.">
-<meta property="og:image" content="/assets/hero.png?v=173">
+<meta property="og:image" content="/assets/hero.png?v=174">
 <meta property="og:type" content="website">
 <title>EdgePoint Tennis Community — Predict. Compete. Climb.</title>
 <link rel="icon" href="/assets/icon.png">
@@ -92,6 +92,13 @@
   .shot .cap-n{color:var(--green);font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
   .shot h3{font-size:1rem;margin:4px 0 3px}
   .shot p{color:var(--muted);font-size:.85rem}
+  .shot .frame{position:relative;cursor:zoom-in;transition:transform .18s}
+  .shot .frame:hover{transform:translateY(-4px)}
+  .zoom{position:absolute;right:9px;bottom:9px;width:34px;height:34px;border-radius:50%;background:var(--green);display:grid;place-items:center;color:#07130e;pointer-events:none;box-shadow:0 3px 10px rgba(0,0,0,.4)}
+  .lightbox{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(0,0,0,.92);backdrop-filter:blur(4px)}
+  .lightbox.open{display:flex}
+  .lightbox img{max-width:min(94vw,400px);max-height:90vh;border-radius:16px;border:1px solid var(--line);box-shadow:0 20px 60px rgba(0,0,0,.6)}
+  .lb-close{position:absolute;top:16px;right:22px;color:#fff;font-size:38px;font-weight:300;cursor:pointer;line-height:1}
 
   /* STEPS */
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -128,12 +135,11 @@
 <body>
 
 <header class="nav"><div class="wrap nav-in">
-  <a class="brand" href="#top"><img src="/assets/icon.png?v=173" alt="EdgePoint logo">EdgePoint</a>
+  <a class="brand" href="#top"><img src="/assets/icon.png?v=174" alt="EdgePoint logo">EdgePoint</a>
   <nav class="nav-links">
     <a href="#tour">App tour</a>
     <a href="#how">How it works</a>
     <a href="#features">Features</a>
-    <a class="btn btn-primary nav-cta" href="#download">Coming soon</a>
   </nav>
 </div></header>
 
@@ -150,7 +156,7 @@
       <div class="checks"><span>Free to play</span><span>Real ATP matches</span><span>Built for tennis fans</span></div>
     </div>
     <div class="hero-phone">
-      <div class="frame"><img src="/assets/hero.png?v=173" alt="EdgePoint app — head-to-head player comparison"></div>
+      <div class="frame"><img src="/assets/hero.png?v=174" alt="EdgePoint app — head-to-head player comparison"></div>
     </div>
   </div></section>
 
@@ -165,11 +171,11 @@
     <h2>From the draw to your call.</h2>
     <p class="sec-sub">Browse a tournament, open a match, weigh the AI win estimate, explore the players and compare them head-to-head — then make your call.</p>
     <div class="shot-grid">
-      <figure class="shot"><div class="frame"><img src="/assets/shot-2.png?v=173" alt="Tournament detail screen" loading="lazy"></div><figcaption><span class="cap-n">01 · Follow</span><h3>Tournament</h3><p>Move through every round of the draw.</p></figcaption></figure>
-      <figure class="shot"><div class="frame"><img src="/assets/shot-1.png?v=173" alt="Matches screen" loading="lazy"></div><figcaption><span class="cap-n">02 · Discover</span><h3>Matches</h3><p>Browse matches by tournament.</p></figcaption></figure>
-      <figure class="shot"><div class="frame"><img src="/assets/shot-3.png?v=173" alt="AI match insight screen" loading="lazy"></div><figcaption><span class="cap-n">03 · Decide</span><h3>AI insight</h3><p>Model win estimates for reference.</p></figcaption></figure>
-      <figure class="shot"><div class="frame"><img src="/assets/shot-4.png?v=173" alt="Players screen" loading="lazy"></div><figcaption><span class="cap-n">04 · Explore</span><h3>Players</h3><p>Real ATP players and form.</p></figcaption></figure>
-      <figure class="shot"><div class="frame"><img src="/assets/shot-5.png?v=173" alt="Head-to-head comparison screen" loading="lazy"></div><figcaption><span class="cap-n">05 · Compare</span><h3>Head-to-head</h3><p>Two players side by side.</p></figcaption></figure>
+      <figure class="shot"><div class="frame" onclick="openLb('/assets/shot-2.png?v=174')"><img src="/assets/shot-2.png?v=174" alt="Tournament detail screen" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20.5 20.5l-4-4"/></svg></span></div><figcaption><span class="cap-n">01 · Follow</span><h3>Tournament</h3><p>Move through every round of the draw.</p></figcaption></figure>
+      <figure class="shot"><div class="frame" onclick="openLb('/assets/shot-1.png?v=174')"><img src="/assets/shot-1.png?v=174" alt="Matches screen" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20.5 20.5l-4-4"/></svg></span></div><figcaption><span class="cap-n">02 · Discover</span><h3>Matches</h3><p>Browse matches by tournament.</p></figcaption></figure>
+      <figure class="shot"><div class="frame" onclick="openLb('/assets/shot-3.png?v=174')"><img src="/assets/shot-3.png?v=174" alt="AI match insight screen" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20.5 20.5l-4-4"/></svg></span></div><figcaption><span class="cap-n">03 · Decide</span><h3>AI insight</h3><p>Model win estimates for reference.</p></figcaption></figure>
+      <figure class="shot"><div class="frame" onclick="openLb('/assets/shot-4.png?v=174')"><img src="/assets/shot-4.png?v=174" alt="Players screen" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20.5 20.5l-4-4"/></svg></span></div><figcaption><span class="cap-n">04 · Explore</span><h3>Players</h3><p>Real ATP players and form.</p></figcaption></figure>
+      <figure class="shot"><div class="frame" onclick="openLb('/assets/shot-5.png?v=174')"><img src="/assets/shot-5.png?v=174" alt="Head-to-head comparison screen" loading="lazy"><span class="zoom"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20.5 20.5l-4-4"/></svg></span></div><figcaption><span class="cap-n">05 · Compare</span><h3>Head-to-head</h3><p>Two players side by side.</p></figcaption></figure>
     </div>
   </div></section>
 
@@ -210,7 +216,7 @@
 
 <footer><div class="wrap">
   <div class="foot-grid">
-    <div class="brand"><img src="/assets/icon.png?v=173" alt="EdgePoint logo" style="width:28px;height:28px">EdgePoint Tennis Community</div>
+    <div class="brand"><img src="/assets/icon.png?v=174" alt="EdgePoint logo" style="width:28px;height:28px">EdgePoint Tennis Community</div>
     <nav class="foot-links">
       <a href="/privacy">Privacy Policy</a>
       <a href="/terms">Terms</a>
@@ -221,6 +227,13 @@
   </div>
   <p class="disclaimer">A community game for tennis fans. AI percentages are model-based reference estimates. © 2026 EdgePoint Tennis Community · <a href="mailto:support@edgepointtennis.com">support@edgepointtennis.com</a></p>
 </div></footer>
+
+<div class="lightbox" id="lb" onclick="closeLb()"><span class="lb-close" aria-label="Close">&times;</span><img id="lb-img" src="" alt="EdgePoint app screenshot"></div>
+<script>
+  function openLb(src){var lb=document.getElementById('lb');document.getElementById('lb-img').src=src;lb.classList.add('open');document.body.style.overflow='hidden';}
+  function closeLb(){var lb=document.getElementById('lb');lb.classList.remove('open');document.body.style.overflow='';}
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb();});
+</script>
 
 </body>
 </html>
