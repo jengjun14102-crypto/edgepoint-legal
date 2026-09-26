@@ -36,24 +36,26 @@
     <img class="logo" src="/assets/icon.png" alt="EdgePoint logo">
     <h1>EdgePoint Tennis Community</h1>
     <p>Predict real ATP matches, build your accuracy record and climb the leaderboard. Free on Android.</p>
-    <a class="btn" id="go" href="https://play.google.com/store/apps/details?id=com.edgepoint.community" rel="noopener">Get it on Google Play</a>
-    <p class="alt">Already installed? This opens the app.<br>
-       Or search <strong>“EdgePoint Tennis Community”</strong> on Google Play.</p>
+    <a class="btn" id="go" href="https://play.google.com/store/apps/details?id=com.edgepoint.community" rel="noopener">Open EdgePoint</a>
+    <p class="alt">Installed? This opens the app. Not yet? It takes you to Google Play.</p>
   </div>
 <script>
-  // On Android, prefer an intent:// that hands off to the Play Store APP directly
-  // (opens EdgePoint if installed, else its Store page) — far more reliable than a
-  // play.google.com URL inside the Facebook in-app browser. Non-Android keeps the
-  // plain https link. Only rewrites the button href; NO auto navigation.
+  // ONE smart button (đại ca 26/09 — "installed → open app, not installed → store"):
+  // on Android use an intent:// that launches EdgePoint's MAIN/LAUNCHER activity
+  // directly (exactly like tapping the app icon, which works) when the package is
+  // installed, and falls back to the Play Store page when it is NOT. This avoids the
+  // Facebook App Link (fb…://) that lands on the SDK's black CustomTabActivity, and
+  // avoids opening play.google.com inside the FB webview. Non-Android keeps the plain
+  // Play Store link. User-tapped only; no auto navigation.
   (function () {
     try {
-      var ua = navigator.userAgent || '';
-      if (/Android/i.test(ua)) {
-        var fallback = 'https://play.google.com/store/apps/details?id=com.edgepoint.community';
+      if (/Android/i.test(navigator.userAgent || '')) {
+        var store = 'https://play.google.com/store/apps/details?id=com.edgepoint.community';
         document.getElementById('go').setAttribute(
           'href',
-          'intent://details?id=com.edgepoint.community#Intent;scheme=market;package=com.android.vending;' +
-          'S.browser_fallback_url=' + encodeURIComponent(fallback) + ';end'
+          'intent://#Intent;package=com.edgepoint.community;' +
+          'action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;' +
+          'S.browser_fallback_url=' + encodeURIComponent(store) + ';end'
         );
       }
     } catch (e) {}
