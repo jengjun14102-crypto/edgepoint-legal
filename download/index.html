@@ -40,26 +40,26 @@
     <p class="alt">Installed? This opens the app. Not yet? It takes you to Google Play.</p>
   </div>
 <script>
-  // ONE smart button (đại ca 26/09 — "installed → open app, not installed → store"):
-  // on Android use an intent:// that launches EdgePoint's MAIN/LAUNCHER activity
-  // directly (exactly like tapping the app icon, which works) when the package is
-  // installed, and falls back to the Play Store page when it is NOT. This avoids the
-  // Facebook App Link (fb…://) that lands on the SDK's black CustomTabActivity, and
-  // avoids opening play.google.com inside the FB webview. Non-Android keeps the plain
-  // Play Store link. User-tapped only; no auto navigation.
-  (function () {
-    try {
-      if (/Android/i.test(navigator.userAgent || '')) {
-        var store = 'https://play.google.com/store/apps/details?id=com.edgepoint.community';
-        document.getElementById('go').setAttribute(
-          'href',
-          'intent://#Intent;package=com.edgepoint.community;' +
-          'action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;' +
-          'S.browser_fallback_url=' + encodeURIComponent(store) + ';end'
-        );
-      }
-    } catch (e) {}
-  })();
+  // ONE smart button (đại ca 26/09 — "installed → open app, not installed → store").
+  // Verified on Pixel: the app registers the `edgepoint://` scheme → opens its real
+  // MainActivity (home), NOT the Facebook SDK's black CustomTabActivity, and NOT a
+  // play.google.com page inside the FB webview. So on tap we try `edgepoint://`; if
+  // the app opens, the page is hidden and we cancel; if nothing happens within 1.2s
+  // (app not installed), we go to Google Play. Href stays = Play Store as the no-JS
+  // fallback. User-gesture only.
+  var STORE = 'https://play.google.com/store/apps/details?id=com.edgepoint.community';
+  var go = document.getElementById('go');
+  go.setAttribute('href', STORE);
+  go.addEventListener('click', function (e) {
+    if (!/Android/i.test(navigator.userAgent || '')) return; // non-Android: plain Play Store link
+    e.preventDefault();
+    var timer = setTimeout(function () { window.location.href = STORE; }, 1200);
+    var cancel = function () { clearTimeout(timer); };
+    document.addEventListener('visibilitychange', function () { if (document.hidden) cancel(); });
+    window.addEventListener('pagehide', cancel);
+    window.addEventListener('blur', cancel);
+    try { window.location.href = 'edgepoint://'; } catch (err) { cancel(); window.location.href = STORE; }
+  });
 </script>
 </body>
 </html>
